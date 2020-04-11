@@ -1,12 +1,13 @@
-data = [1,2,8,05456]
+data = [1, 2, 8, 05456]
+
 
 def quick_sort(array_to_sort):
-    if(len(array_to_sort) == 0):
+    if len(array_to_sort) == 0:
         return []
-    #pick a pivot
+    # pick a pivot
     pivot = array_to_sort.pop(0)
 
-    #Iterate through items and partition into two seperate arrays
+    # Iterate through items and partition into two separate arrays
     larger_array = []
     smaller_array = []
     for element in array_to_sort:
