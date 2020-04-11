@@ -1,4 +1,4 @@
-data = []
+data = [1,2,8,05456]
 
 def quick_sort(array_to_sort):
     if(len(array_to_sort) == 0):
