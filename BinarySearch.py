@@ -7,35 +7,15 @@ def search(nums, target):
     :type target: int
     :rtype: int
     """
-    final_index = (len(nums) - 1) / 2
-    left = False
-    right = False
-    while len(nums) >= 1:
-        if left:
-            if len(nums) % 2 == 0:
-                index = len(nums) / 2
-                final_index = final_index - index
-            else:
-                index = (len(nums) - 1) / 2
-                final_index = final_index - 1 - index
-            left = False
-        elif right:
-            if len(nums) % 2 == 0:
-                index = len(nums) / 2
-            else:
-                index = (len(nums) - 1) / 2
-            final_index = final_index + 1 + index
-            right = False
+    left, right = 0, len(nums) - 1
+    while left <= right:
+        pivot = left + (right - left) // 2
+        if nums[pivot] == target:
+            return pivot
+        if target < nums[pivot]:
+            right = pivot - 1
         else:
-            index = (len(nums) - 1) / 2
-        if target == nums[index]:
-            return final_index
-        if target > nums[index]:
-            nums = nums[(index + 1):]
-            right = True
-        elif target < nums[index]:
-            nums = nums[:index]
-            left = True
+            left = pivot + 1
     return -1
 
 
